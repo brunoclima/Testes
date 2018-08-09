@@ -10,9 +10,9 @@ class Sum {
             $priceList[] = $value['valor'] * ($value['quantidade'] ?: 1);
         }
 
-        $total = array_sum($priceList);
-        var_dump($total);
-        return $total;
+        $this->total = array_sum($priceList);
+        var_dump($this->total);
+        return $this->total;
     }
 }
 
@@ -29,12 +29,14 @@ if($sum->total([
     ], [
         'nome' => 'bola de basquete',
         'valor' => 80
+    ], [
+        'nome' => 'batata',
+        'valor' => 3,
+        'quantidade' => 10
     ]
-]) != 224) {
+]) != 254) {
     echo "Deu Ruim! \nResultado: $sum->total";
 } else {
     echo "Nice! \nResultado: $sum->total";
 }
-
-var_dump($sum->total);
 ?>
