@@ -11,8 +11,12 @@ class Sum {
         }
 
         $this->total = array_sum($priceList);
-        echo "Resultado: $this->total\n";
+
         return $this->total;
+    }
+
+    function getTotal() {
+        return "\nTotal: $this->total";
     }
 }
 
@@ -37,6 +41,6 @@ if($sum->total([
 ]) != 259) {
     echo "Deu Ruim!";
 } else {
-    echo "Nice!";
+    echo "Nice!" . $sum->getTotal();
 }
 ?>
