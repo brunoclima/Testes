@@ -1,7 +1,7 @@
 <?php
 class Sum {
 
-    public $total;
+    private $total; // Should be private and only return the result. This is only for testing.
 
     function total($cart) {
         $priceList = array();
@@ -11,7 +11,7 @@ class Sum {
         }
 
         $this->total = array_sum($priceList);
-        var_dump($this->total);
+        echo "Resultado: $this->total\n";
         return $this->total;
     }
 }
@@ -31,12 +31,12 @@ if($sum->total([
         'valor' => 80
     ], [
         'nome' => 'batata',
-        'valor' => 3,
+        'valor' => 3.50,
         'quantidade' => 10
     ]
-]) != 254) {
-    echo "Deu Ruim! \nResultado: $sum->total";
+]) != 259) {
+    echo "Deu Ruim!";
 } else {
-    echo "Nice! \nResultado: $sum->total";
+    echo "Nice!";
 }
 ?>
