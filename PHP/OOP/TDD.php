@@ -2,11 +2,17 @@
 class Sum {
 
     private $total; // Should be private and only return the result. This is only for testing.
+    protected $cart;
 
-    function total($cart) {
+    public function __construct($cart)
+    {
+        $this->cart = $cart;
+    }
+
+    function total() {
         $priceList = array();
 
-        foreach ($cart as $key => $value) {
+        foreach ($this->cart as $key => $value) {
             $priceList[] = $value['valor'] * ($value['quantidade'] ?: 1);
         }
 
@@ -15,14 +21,14 @@ class Sum {
         return $this->total;
     }
 
-    function getTotal() {
-        return "\nTotal: $this->total";
+    function __get($property) {
+        if(property_exists($this, $property)) {
+            return $this->$property;
+        }
     }
 }
 
-$sum = new Sum;
-
-if($sum->total([
+$sum = new Sum([
     [
         'nome' => 'lasanha',
         "valor" => 8,
@@ -38,9 +44,11 @@ if($sum->total([
         'valor' => 3.50,
         'quantidade' => 10
     ]
-]) != 259) {
+]);
+
+if($sum->total() != 259) {
     echo "Deu Ruim!";
 } else {
-    echo "Nice!" . $sum->getTotal();
+    echo "Nice! $sum->total";
 }
 ?>
