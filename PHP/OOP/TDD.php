@@ -1,7 +1,7 @@
 <?php
 class Sum {
 
-    private $total; // Should be private and only return the result. This is only for testing.
+    private $total; // Should be private and only return the result.
     protected $cart;
 
     public function __construct($cart)
