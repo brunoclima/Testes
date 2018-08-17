@@ -12,8 +12,9 @@ test('Soma total', () => {
                 "quantidade": 8
             }, {
                 "nome": "Anel de ouro",
-                "valor": 320
+                "valor": 320,
+                "desconto": 20
             }
         ]
-    })).toBe(544);
+    })).toBe(480);
 });
