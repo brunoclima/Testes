@@ -2,7 +2,7 @@ const main = require('./Test');
 
 describe("Total do pedido", () => {
     test('Soma total', () => {
-        expect(main.orderTotal({
+        const testvar = main.orderTotal(main.desconto, {
             items: [
                 {
                     "nome": "Colar de prata",
@@ -14,14 +14,35 @@ describe("Total do pedido", () => {
                 }, {
                     "nome": "Anel de ouro",
                     "valor": 320,
-                    "desconto": 50,
-                    "quantidade": 2
+                    "desconto": 100,
+                    "quantidade": 5
                 }
             ]
-        })).toBe(544);
+        });
+
+        expect(testvar).toBe(224);
+        expect(testvar).toBeGreaterThan(0);
+        expect(testvar).toBeDefined();
+        expect(testvar).not.toBeNaN();
+        expect(testvar).not.toBeUndefined();
     });
 
     test("Desconto", () => {
-        expect(main.desconto(320, 10, 2)).toBe(64);
+        const testvar = main.desconto(320, 50, 2)
+
+        expect(testvar).toBe(320);
+        expect(testvar).toBeDefined();
+        expect(testvar).not.toBeUndefined();
+        expect(testvar).toBeGreaterThanOrEqual(0);
     });
+
+    // test('null', () => {
+    //     const n = null;
+
+    //     expect(n).toBeNull();
+    //     expect(n).toBeDefined();
+    //     expect(n).not.toBeUndefined();
+    //     expect(n).not.toBeTruthy();
+    //     expect(n).toBeFalsy();
+    // });
 });
