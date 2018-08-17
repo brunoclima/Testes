@@ -1,5 +1,7 @@
 function orderTotal(cart) {
-    return cart.items.reduce((prev, cur) => cur.valor + prev, 0);
+    return cart.items.reduce((acumulador, valorAtual) => {
+        return valorAtual.valor * (valorAtual.quantidade || 1) + acumulador
+    }, 0);
 }
 
 module.exports = orderTotal;
