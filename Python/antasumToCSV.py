@@ -1,6 +1,6 @@
 import pandas
 
-pluviometro = pandas.read_excel('result/Telemetria_Relatorios - dmeenergeticadiariopadrecarlos.xlsx',
+pluviometro = pandas.read_excel('result/chuvadiaria.xlsx',
                                 names=['data', 'chuva', 'nivel', 'vazao'],skiprows=4, skipfooter=1)
 pluviometro['data'] = pandas.to_datetime(pluviometro['data'], format='%d/%m/%Y')
 nivelEvazao = pandas.read_excel('result/Telemetria_Relatorios - dmeenergeticadiariaribeirao.xlsx',
@@ -20,4 +20,4 @@ nivelEvazao['data'] = pandas.to_datetime(nivelEvazao['data'], format='%Y-%m-%d')
 
 result = pandas.merge(nivelEvazao, pluviometro, on='data')
 print(result)
-pluviometro.to_csv('result/padrecarlos.csv', index=False, sep=';')
+result.to_csv('result/ribeirao.csv', index=False, sep=';')

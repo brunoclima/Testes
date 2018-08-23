@@ -1,0 +1,15 @@
+{
+  "name": "ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "interfaces.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "awesome-typescript-loader": "^5.2.0",
+    "source-map-loader": "^0.2.4"
+  }
+}
